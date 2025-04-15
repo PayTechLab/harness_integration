@@ -20,5 +20,5 @@ jobs:
 
       - name: Run Bruno Collection
         run: |
-          C:\Users\TelangLaxmanVishnu(D\Laxman\API_harness\Harness_Integration
+          cd C:/Users/TelangLaxmanVishnu(D\Laxman/API_harness/Harness_Integration
           bru run --insecure
