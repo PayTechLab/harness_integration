@@ -1,0 +1,24 @@
+name: Run Bruno Collection
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  run-bruno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Bruno CLI
+        run: npm install -g @usebruno/cli
+
+      - name: Run Bruno Collection
+        run: |
+          C:\Users\TelangLaxmanVishnu(D\Laxman\API_harness\Harness_Integration
+          bru run --insecure
