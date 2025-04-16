@@ -21,7 +21,5 @@ jobs:
 
       - name: Run Bruno Collection
         run: |
-        
-          cd "C:\Users\TelangLaxmanVishnu(D\Laxman\API_harness\Harness_Integration"
           set NODE_TLS_REJECT_UNAUTHORIZED=0
           bru run --insecure
