@@ -3,11 +3,11 @@ name: Run Bruno Collection
 on:
   push:
     branches:
-      - API_Automation_DEV
+      - API_Automation_DEV_with_report
   pull_request:
     branches:
-      - API_Automation_DEV
-  workflow_dispatch:  # Enables manual triggering of the workflow
+      - API_Automation_DEV_with_report
+  workflow_dispatch: 
 
 jobs:
   run-bruno:
@@ -19,7 +19,13 @@ jobs:
       - name: Install Bruno CLI
         run: npm install -g @usebruno/cli
 
-      - name: Run Bruno Collection
+      - name: Run Bruno Collection and Generate Reports
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
-          bru run --insecure
+          bru run --insecure --reporter-json ./reports/results.json --reporter-html ./reports/results.html
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: bruno-reports
+          path: ./reports/
