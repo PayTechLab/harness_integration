@@ -22,7 +22,7 @@ jobs:
       - name: Run Bruno Collection and Generate Reports
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
-          bru run --insecure --reporter-json ./reports/results.json --reporter-html ./reports/results.html
+          bru run --insecure --folder ./bruno-git-workflow-test --reporter-json ./reports/results.json --reporter-html ./reports/results.html
 
       - name: Upload Reports
         uses: actions/upload-artifact@v4
