@@ -1,3 +1,3 @@
 # harness_integration
 
-This is the implementation of git workflow.
+This is the implementation of git workflow Action and generate the report 
