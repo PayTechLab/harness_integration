@@ -23,6 +23,13 @@ jobs:
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
           bru run --insecure 
-          
+          mkdir -p ./reports   
+          bru run --insecure 
+          --reporter-json ./reports/results.json 
+          --reporter-html ./reports/results.html
 
-      
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: bruno-reports
+          path: ./reports/
