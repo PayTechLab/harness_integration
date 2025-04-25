@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Install Bruno CLI
         run: npm install -g @usebruno/cli
@@ -22,4 +22,10 @@ jobs:
       - name: Run Bruno Collection
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
-          bru run --insecure
+          bru run --insecure --reporter-json ../reports/results.json --reporter-html ../reports/results.html
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: bruno-reports
+          path: ./reports/
