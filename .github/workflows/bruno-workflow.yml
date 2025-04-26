@@ -22,7 +22,7 @@ jobs:
       - name: Run Bruno Collection
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
-          bru run --insecure  
+          
           bru run --insecure --reporter-json ./reports/results.json --reporter-html ./reports/results.html
 
       - name: Upload Reports
