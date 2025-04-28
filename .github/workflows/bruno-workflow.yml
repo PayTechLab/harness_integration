@@ -13,29 +13,19 @@ jobs:
   run-bruno:
     runs-on: windows-latest
     steps:
-      # Step 1: Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
 
-      # Step 2: Install Bruno CLI
       - name: Install Bruno CLI
         run: npm install -g @usebruno/cli
 
-      # Step 3: Run Bruno Collection
       - name: Run Bruno Collection
         run: |
           set NODE_TLS_REJECT_UNAUTHORIZED=0
           
           bru run --insecure --reporter-json ./reports/results.json --reporter-html ./reports/results.html
-
-      # Step 4: Process Results to Include Request Details
-      - name: Process Results
-        run: node ./reports/parse-results.js
-
-      # Step 5: Upload Enriched Reports
-        # This step will upload the enriched report as an artifact
-      - name: Upload Enriched Reports
+      - name: Upload Reports
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: bruno-enriched-reports
-          path: ./reports/enriched-results.json
+         name: bruno-reports
+         path: ./reports/
