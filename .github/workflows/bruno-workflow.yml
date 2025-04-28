@@ -30,7 +30,7 @@ jobs:
 
       # Step 4: Process Results to Include Request Details
       - name: Process Results
-        run: node parse-results.js
+        run: node ./reports/parse-results.js
 
       # Step 5: Upload Enriched Reports
         # This step will upload the enriched report as an artifact
